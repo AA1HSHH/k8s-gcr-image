@@ -29,8 +29,9 @@ jobs:
       - name: Run a multi-line script
         run: |
           docker pull k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2
+          docker pull k8s.gcr.io/prometheus-adapter/prometheus-adapter:v0.9.1
           docker tag k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2 oiouou/nfs-subdir-external-provisioner:v4.0.2
-      
+          docker tag k8s.gcr.io/prometheus-adapter/prometheus-adapter:v0.9.1 oiouou/prometheus-adapter:v0.9.1 
       - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
         with:
@@ -41,4 +42,5 @@ jobs:
       - name: Push to Docker Registry
         run: |
           docker push oiouou/nfs-subdir-external-provisioner:v4.0.2
+          docker push oiouou/prometheus-adapter:v0.9.1
 
